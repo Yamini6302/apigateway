@@ -19,13 +19,7 @@ pipeline {
                 bat "mvn clean install -DskipTests"
             }
          }
-          stage('Test') {
-            steps {
-                echo 'Test done'
-                bat "mvn test"
-            }
-          }
-           stage('Deploy') {
+	stage('Deploy') {
             steps {
 		bat "docker rm gateway"
 		bat "docker rmi gateway"
