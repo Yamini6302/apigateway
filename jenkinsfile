@@ -27,6 +27,8 @@ pipeline {
           }
            stage('Deploy') {
             steps {
+		bat "docker rm gateway"
+		bat "docker rmi gateway"
                 echo 'Deploy done'
                  bat "docker build -t gateway ."
 			             bat "docker run -p 9996:9996 -d --name gateway gateway"
